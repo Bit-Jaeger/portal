@@ -26,10 +26,27 @@
 
 
 
+/* body */
+
+.body-container 
+{
+  background-color: #1c132e;
+
+}
+
+.relative-body-container
+{
+  position: relative;
+  top: 100px;
+}
+
+
 
 h1{
     display: flex;
     justify-content: center;
     align-items: center;
     color: purple;
+    background-color: #120c1f;
 }
+
