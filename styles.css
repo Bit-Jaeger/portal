@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: purple;
+
 
 
   
@@ -54,7 +54,7 @@
   font-family: fantasy, sans-serif;
   font-weight: bold;
   font-size: x-large;
-  color: purple;
+
 
 
 
@@ -70,7 +70,6 @@
 
 .body-container 
 {
-  background-color: #1c132e;
 
 }
 
