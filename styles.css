@@ -67,6 +67,7 @@ body{
 
 .relative-body-container{
   position: relative;
+  top: 20px;
   z-index: 10;
 }
 
@@ -84,18 +85,22 @@ body{
 
 
 /* topnav */
-.topnav-link-container {
+
+.topnav-container{
+
+}
+
+
+.topnav-container {
+  position: sticky;
+  top: 0px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  position: sticky;
-  top: 0px;
-
-
   background-color: transparent !important;
 }
 
-.topnav-link-container a {
+.topnav-container a {
 text-decoration: none;
 font-family: fantasy, sans-serif;
 font-weight: bold;
