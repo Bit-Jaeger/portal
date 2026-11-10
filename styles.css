@@ -21,8 +21,48 @@
 .audiowide-regular {
   font-family: "Audiowide", sans-serif;
   font-weight: 400;
-  font-style: normal;
+  font-style: bold;
 }
+
+
+#heading {
+  margin-top: 0;
+  padding-top: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+
+
+  
+}
+
+
+/* topnav */
+
+.topnav-link-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: sticky;
+  top: 0px;
+}
+
+.topnav-link-container a {
+  text-decoration: none;
+  font-family: fantasy, sans-serif;
+  font-weight: bold;
+  font-size: x-large;
+  color: purple;
+
+
+
+
+}
+
+
+
 
 
 
@@ -34,19 +74,8 @@
 
 }
 
-.relative-body-container
-{
-  position: relative;
-  top: 100px;
-}
 
 
 
-h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: purple;
-    background-color: #120c1f;
-}
+
 
