@@ -67,7 +67,7 @@ body{
 
 .relative-body-container{
   position: relative;
-  top: 20px;
+  padding-top: 20px;
   z-index: 10;
 }
 
@@ -86,14 +86,10 @@ body{
 
 /* topnav */
 
-.topnav-container{
-
-}
-
 
 .topnav-container {
   position: sticky;
-  top: 0px;
+  top: 0;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
