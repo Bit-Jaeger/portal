@@ -1,31 +1,3 @@
-/*##########font importing###########*/
-
-.archivo-black-regular {
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.tiny5-duo {
-  font-family: "Tiny5 Duo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "BLED" 0,
-    "JITT" 0,
-    "ROND" 0;
-}
-
-.audiowide-regular {
-  font-family: "Audiowide", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-
 
 h1{
     display: flex;
