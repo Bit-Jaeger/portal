@@ -8,6 +8,7 @@
 body{
   background-color: #2b2b2b;
   color: #ffffff;
+  display: grid;
 }
 
 
@@ -107,3 +108,31 @@ background-color: transparent;
 
 }
 
+
+
+project-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /*add as many rows as there are projects*/
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+  "project1 project1 project2"
+  "project3 project4 project4"
+  "project5 project5 project6";
+}
+
+
+
+.project1{
+  grid-area: project1;
+  z-index: 10;
+  color: white;
+  background-color: aqua;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+p {
+  z-index: 99;
+  color: white;
+}
