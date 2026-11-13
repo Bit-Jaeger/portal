@@ -74,11 +74,10 @@ body{
 
 
 #heading {
-  display: flex;
-  justify-content: center;
-  align-items:center;
+  text-align: center;
+  transform: translateX(-2.8%);
+  width: 100%;
   z-index: 10;
-
   background-color: transparent !important;
 }
 
@@ -94,8 +93,9 @@ body{
   top: 24px;
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
   background-color: transparent !important;
+  margin-top: 1.5em;
 }
 
 .topnav-container a {
