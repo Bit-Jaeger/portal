@@ -110,8 +110,11 @@ background-color: transparent;
 
 
 
-project-container{
+#project-container{
   display: grid;
+  position: relative;
+  margin: 32px;
+  padding: 1.5em;
   grid-template-columns: 1fr 1fr 1fr;
   /*add as many rows as there are projects*/
   grid-template-rows: 1fr 1fr 1fr;
@@ -127,9 +130,21 @@ project-container{
   grid-area: project1;
   z-index: 10;
   color: white;
-  background-color: aqua;
-  min-width: 100px;
-  min-height: 100px;
+  background-color: goldenrod;
+  min-height: 254px;
+}
+.project1 p{
+  display: flex;
+  justify-content: center;
+}
+
+.project2{
+  grid-area: project2;
+  z-index: 10;
+  color: white;
+  background-color: green;
+  min-height: 254px;
+
 }
 
 p {
