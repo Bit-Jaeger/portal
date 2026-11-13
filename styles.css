@@ -90,6 +90,7 @@ body{
 
 .topnav-container {
   position: sticky;
+  z-index: 99;
   top: 0;
   display: flex;
   justify-content: space-around;
@@ -115,6 +116,7 @@ background-color: transparent;
   position: relative;
   margin: 32px;
   padding: 1.5em;
+  
   grid-template-columns: 1fr 1fr 1fr;
   /*add as many rows as there are projects*/
   grid-template-rows: 1fr 1fr 1fr;
@@ -126,28 +128,36 @@ background-color: transparent;
 
 
 
-.project1{
-  grid-area: project1;
-  z-index: 10;
+.project-card{
+  padding: 1.5em;
+  margin: 1.5em;
   color: white;
   background-color: goldenrod;
   min-height: 254px;
 }
-.project1 p{
-  display: flex;
-  justify-content: center;
-}
 
-.project2{
+#project1 {
+  grid-area: project1;
+  background-color:#5d5d5d;
+}
+#project2 {
   grid-area: project2;
-  z-index: 10;
-  color: white;
-  background-color: green;
-  min-height: 254px;
-
+  background-color: #6d6d6d;
+}
+#project3{
+  grid-area: project3;
+  background-color: #7d7d7d;
+}
+#project4{
+  grid-area: project4;
+  background-color: #8d8d8d;
 }
 
-p {
-  z-index: 99;
-  color: white;
+#project5 {
+  grid-area: project5;
+  background-color: #9d9d9d;
+}
+#project6 {
+  grid-area: project6;
+  background-color: #adadad;
 }
