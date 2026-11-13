@@ -75,8 +75,8 @@ body{
 
 #heading {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  align-items:center;
   z-index: 10;
 
   background-color: transparent !important;
@@ -91,7 +91,7 @@ body{
 .topnav-container {
   position: sticky;
   z-index: 99;
-  top: 0;
+  top: 24px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -100,11 +100,8 @@ body{
 
 .topnav-container a {
 text-decoration: none;
-font-family: fantasy, sans-serif;
-font-weight: bold;
-font-size: x-large;
+font-size:x-large;
 color: white;
-
 background-color: transparent;
 
 }
