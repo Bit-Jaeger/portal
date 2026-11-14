@@ -1,0 +1,1 @@
+const glow1 = document.getElementById('glow-purple')
