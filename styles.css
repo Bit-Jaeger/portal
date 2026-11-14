@@ -136,6 +136,8 @@ background-color: transparent;
   color: white;
   background-color: goldenrod;
   min-height: 254px;
+  border-radius: 16px;
+  opacity: 0.85;
 }
 
 #project1 {
