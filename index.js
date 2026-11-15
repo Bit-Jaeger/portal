@@ -47,20 +47,22 @@ addEventListener("resize", (event)=> {
 
 
 /* ##### Canvas & Particles ##### */
-const amountOfParticles = 32;
+const amountOfParticles = 64;
+const maxSpeedParticle = 2;
 
 
 
 particleCanvas.width = window.innerWidth;
 particleCanvas.height= window.innerHeight;
-ctx.fillStyle = "#8CFFDA";
 
 
 /* TODO: Color Variable */
 class Particle {
     constructor(x, y, w, h, dx, dy) {
         this.x = x;
+        this.originX = x;
         this.y = y;
+        this.originY = y;
         this.w = w;
         this.h = h; 
         this.dx = dx;
@@ -68,13 +70,25 @@ class Particle {
     }
 
     draw(){
+        
+        ctx.fillStyle = "#8CFFDA";
         ctx.fillRect(this.x, this.y, this.w, this.h);
         ctx.stroke();
     }
 
     update(){
+        if (this.x > particleCanvas.width || this.x < 0 || this.y > particleCanvas.height){
+            this.x = this.originX;
+            this.y = this.originY;
+        }
+
+
+
+
         this.x += this.dx;
         this.y += this.dy;
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        ctx.fillRect(0, 0, particleCanvas.width, particleCanvas.height);
     }
 
 }
@@ -87,8 +101,8 @@ for (let i = 0; i < amountOfParticles; i++){
     /*Draw the particles randomly here */
     const xLocationRandom = (Math.random() * xTitleHeight) + (rect.left);
     const yLocationRandom = (Math.random() * yTitleHeight) + (rect.top)
-    const xSpeedRandom = (Math.random() * 2);
-    const ySpeedRandom = (Math.random() * 2);
+    const xSpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
+    const ySpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
     console.log(xLocationRandom);
     particles.push(new Particle(xLocationRandom, yLocationRandom, 10, 10, xSpeedRandom, ySpeedRandom));
     
@@ -100,9 +114,11 @@ for (let i = 0; i < amountOfParticles; i++){
 
 const animate = () => {
     requestAnimationFrame(animate);
+    
     particles.forEach(particle => {
     particle.draw();
-    particle.update();
+    particle.update()
+ 
 })
 
 }
