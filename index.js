@@ -98,7 +98,7 @@ class Particle {
 
 }
 
-
+/* ####### init for all of the particles ####### */
 let particles = [];
 
 

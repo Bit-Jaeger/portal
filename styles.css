@@ -19,7 +19,9 @@ body{
   z-index: 99;
 }
 
-
+p{
+  z-index: 99;
+}
 
 /*########## font importing ###########*/
 .archivo-black-regular {
