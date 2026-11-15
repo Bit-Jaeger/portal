@@ -17,12 +17,13 @@ const glow1 = document.getElementById('glow-purple');
 /* #### getting heading location #### */
 var rect = heading.getBoundingClientRect();
 
-    const xTitle = (rect.right - rect.left)
-    const yTitle = rect.top;
+    const xTitleHeight = (rect.right - rect.left)
+    const yTitleHeight = (rect.top);
 
 
 console.log(rect.top, rect.right, rect.bottom, rect.left);
-console.log(xTitle); 
+console.log(xTitleHeight); 
+console.log(yTitleHeight);
 
 
 
@@ -82,11 +83,12 @@ let particles = [];
 
 for (let i = 0; i < amountOfParticles; i++){
     /*Draw the particles randomly here */
-    const xLocationRandom = (Math.random() * xTitle) + (rect.left);
+    const xLocationRandom = (Math.random() * xTitleHeight) + (rect.left);
+    const yLocationRandom = (Math.random() * yTitleHeight) + (rect.top)
     const xSpeedRandom = (Math.random() * 4);
     const ySpeedRandom = (Math.random() * 2);
     console.log(xLocationRandom);
-    particles.push(new Particle(xLocationRandom, yTitle, 10, 10, xSpeedRandom, ySpeedRandom));
+    particles.push(new Particle(xLocationRandom, yLocationRandom, 10, 10, xSpeedRandom, ySpeedRandom));
     
 }
 
