@@ -11,7 +11,12 @@ body{
   display: grid;
 }
 
-
+#testbutton{
+  position: relative;
+  left: 50%;
+  padding: 8px;
+  z-index: 99;
+}
 
 
 
@@ -67,6 +72,7 @@ body{
   display: flex;
   position: fixed;
   z-index: 99;
+  pointer-events: none;
 }
 
 

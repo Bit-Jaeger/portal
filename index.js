@@ -7,6 +7,11 @@ const glow1 = document.getElementById('glow-purple');
 var rect = heading.getBoundingClientRect();
 
 
+const testbtn = document.getElementById('testbutton');
+testbtn.addEventListener("click", () =>{
+    alert("Button was clicked!");
+})
+
 addEventListener("resize", (event)=> {
     particleCanvas.width = window.innerWidth;
     particleCanvas.height= window.innerHeight;
