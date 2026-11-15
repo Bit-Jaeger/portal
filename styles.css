@@ -62,6 +62,12 @@ body{
   display: block;
 }
 
+/* ##### particle for title ##### */
+#particle-canvas {
+  display: flex;
+  position: fixed;
+  z-index: 99;
+}
 
 
 
