@@ -33,7 +33,6 @@ console.log(yTitleHeight);
 const testbtn = document.getElementById('testbutton');
 testbtn.addEventListener("click", () =>{
     animate();
-    alert("Button was clicked!");
 })
 
 
@@ -48,7 +47,7 @@ addEventListener("resize", (event)=> {
 
 
 /* ##### Canvas & Particles ##### */
-const amountOfParticles = 16;
+const amountOfParticles = 32;
 
 
 
@@ -73,7 +72,10 @@ class Particle {
         ctx.stroke();
     }
 
-
+    update(){
+        this.x += this.dx;
+        this.y += this.dy;
+    }
 
 }
 
@@ -85,7 +87,7 @@ for (let i = 0; i < amountOfParticles; i++){
     /*Draw the particles randomly here */
     const xLocationRandom = (Math.random() * xTitleHeight) + (rect.left);
     const yLocationRandom = (Math.random() * yTitleHeight) + (rect.top)
-    const xSpeedRandom = (Math.random() * 4);
+    const xSpeedRandom = (Math.random() * 2);
     const ySpeedRandom = (Math.random() * 2);
     console.log(xLocationRandom);
     particles.push(new Particle(xLocationRandom, yLocationRandom, 10, 10, xSpeedRandom, ySpeedRandom));
@@ -94,13 +96,16 @@ for (let i = 0; i < amountOfParticles; i++){
 
 
 /* ### drawing each particle ### */
-particles.forEach(particle => {
+
+
+const animate = () => {
+    requestAnimationFrame(animate);
+    particles.forEach(particle => {
     particle.draw();
+    particle.update();
 })
 
-
-
-
+}
 
 
 
