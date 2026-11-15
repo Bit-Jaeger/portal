@@ -1,6 +1,7 @@
 /* CREDIT for the particle effect: learned a lot by watching NPC Codes' Video: https://www.youtube.com/watch?v=9ki-V5NvSRo&t=879s */
 
-
+/* #TODO: onMouseOver event -> something should follow the mouse or particles get animated, 
+        when hovering a link or something like that! */
 
 /* #### getting elements #### */ 
 const particleCanvas = document.getElementById('particle-canvas');
@@ -67,19 +68,24 @@ class Particle {
         this.h = h; 
         this.dx = dx;
         this.dy = dy;
+        this.alpha = 1.0;
+        this.decay = (Math.random() *0.1);
     }
 
     draw(){
-        
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
         ctx.fillStyle = "#8CFFDA";
         ctx.fillRect(this.x, this.y, this.w, this.h);
         ctx.stroke();
+        ctx.restore();
     }
 
     update(){
         if (this.x > particleCanvas.width || this.x < 0 || this.y > particleCanvas.height){
             this.x = this.originX;
             this.y = this.originY;
+            this.alpha = Math.random() * 1.0;
         }
 
 
@@ -87,8 +93,7 @@ class Particle {
 
         this.x += this.dx;
         this.y += this.dy;
-        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-        ctx.fillRect(0, 0, particleCanvas.width, particleCanvas.height);
+        this.alpha -= (this.decay / 20);
     }
 
 }
@@ -114,7 +119,7 @@ for (let i = 0; i < amountOfParticles; i++){
 
 const animate = () => {
     requestAnimationFrame(animate);
-    
+    ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
     particles.forEach(particle => {
     particle.draw();
     particle.update()
