@@ -2,18 +2,31 @@
 
 
 
-
+/* #### getting elements #### */ 
 const particleCanvas = document.getElementById('particle-canvas');
 const ctx = particleCanvas.getContext("2d");
-const amountOfParticles = 16;
-
-
 
 
 
 const heading = document.getElementById('heading');
 const glow1 = document.getElementById('glow-purple');
+
+
+
+
+/* #### getting heading location #### */
 var rect = heading.getBoundingClientRect();
+
+    const xTitle = rect.right / 2;
+    const yTitle = rect.top;
+
+
+console.log(rect.top, rect.right, rect.bottom, rect.left);
+console.log(xTitle); 
+
+
+
+
 
 
 const testbtn = document.getElementById('testbutton');
@@ -24,7 +37,7 @@ testbtn.addEventListener("click", () =>{
 
 
 
-/* watch out: wipes the canvas clean on resize! */
+/* Resize #### watch out: wipes the canvas clean on resize! */
 addEventListener("resize", (event)=> {
     particleCanvas.width = window.innerWidth;
     particleCanvas.height= window.innerHeight;
@@ -34,6 +47,10 @@ addEventListener("resize", (event)=> {
 
 
 /* ##### Canvas & Particles ##### */
+const amountOfParticles = 16;
+
+
+
 particleCanvas.width = window.innerWidth;
 particleCanvas.height= window.innerHeight;
 ctx.fillStyle = "#8CFFDA";
@@ -58,9 +75,6 @@ class Particle {
 
 
 }
-const particle = new Particle(100, 400, 50, 100, 4, 4);
-particle.draw();
-
 
 
 let particles = [];
@@ -68,22 +82,32 @@ let particles = [];
 
 for (let i = 0; i < amountOfParticles; i++){
     /*Draw the particles randomly here */
-    particles.push(new Particle);
+    const xLocationRandom = (Math.random() * 200) + (xTitle / 1.3);
+    const xSpeedRandom = (Math.random() * 4);
+    const ySpeedRandom = (Math.random() * 2);
+    console.log(xLocationRandom);
+    particles.push(new Particle(xLocationRandom, yTitle, 10, 10, xSpeedRandom, ySpeedRandom));
     
 }
 
 
-function animate(){
-    const xTitle = rect.right - rect.left;
-    console.log(xTitle); 
-    particle.draw(xTitle, 100, 50, 50, 4, 4);
-}
+/* ### drawing each particle ### */
+particles.forEach(particle => {
+    particle.draw();
+})
 
 
 
 
 
-console.log(rect.top, rect.right, rect.bottom, rect.left);
+
+
+
+
+
+
+
+
 
 
 

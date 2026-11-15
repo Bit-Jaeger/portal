@@ -87,11 +87,12 @@ body{
   z-index: 10;
 }
 
-
+#centeringH1 {
+  display:flex;
+  justify-content: center;
+}
 #heading {
   display: inline-block;
-  text-align: center;
-  width: 100%;
   z-index: 10;
   background-color: transparent !important;
 }
