@@ -89,8 +89,8 @@ body{
 
 
 #heading {
+  display: inline-block;
   text-align: center;
-  transform: translateX(-2.8%);
   width: 100%;
   z-index: 10;
   background-color: transparent !important;
@@ -149,10 +149,10 @@ background-color: transparent;
   padding: 1.5em;
   margin: 1.5em;
   color: white;
-  background-color: goldenrod;
   min-height: 254px;
   border-radius: 16px;
   opacity: 0.85;
+  text-decoration: underline;
 }
 
 #project1 {
