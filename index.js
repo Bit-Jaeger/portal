@@ -59,7 +59,7 @@ particleCanvas.height= window.innerHeight;
 
 /* TODO: Color Variable */
 class Particle {
-    constructor(x, y, w, h, dx, dy) {
+    constructor(x, y, w, h, dx, dy, boolDir) {
         this.x = x;
         this.originX = x;
         this.y = y;
@@ -68,8 +68,11 @@ class Particle {
         this.h = h; 
         this.dx = dx;
         this.dy = dy;
+
+
         this.alpha = 1.0;
         this.decay = (Math.random() *0.1);
+        this.boolDirection = boolDir;
     }
 
     draw(){
@@ -86,12 +89,26 @@ class Particle {
             this.x = this.originX;
             this.y = this.originY;
             this.alpha = Math.random() * 1.0;
+            
+        }
+
+        /* only switch direction after so many updates! */
+        if (Math.random() < 0.01){    
+            if (Math.random() < 0.5){
+                this.boolDirection = true;
+            } else {
+                this.boolDirection = false;
+            }
+        }
+
+        if(this.boolDirection){
+            this.x -= this.dx;
+        }else {
+            this.x += this.dx;
         }
 
 
-
-
-        this.x += this.dx;
+        /* update y and alpha anyway */
         this.y += this.dy;
         this.alpha -= (this.decay / 20);
     }
@@ -108,7 +125,9 @@ for (let i = 0; i < amountOfParticles; i++){
     const yLocationRandom = (Math.random() * yTitleHeight) + (rect.top)
     const xSpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
     const ySpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
+    const boolDir = (Math.random() < 0.5);
     console.log(xLocationRandom);
+    console.log(boolDir);
     particles.push(new Particle(xLocationRandom, yLocationRandom, 10, 10, xSpeedRandom, ySpeedRandom));
     
 }
