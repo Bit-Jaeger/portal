@@ -100,13 +100,15 @@ class Particle {
                 this.boolDirection = false;
             }
         }
-
+/*      ---- switching x direction movement randomly ----
         if(this.boolDirection){
             this.x -= this.dx;
         }else {
             this.x += this.dx;
-        }
+        }*/
 
+
+        this.x += this.dx;
 
         /* update y and alpha anyway */
         this.y += this.dy;
