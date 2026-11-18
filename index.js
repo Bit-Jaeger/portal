@@ -48,7 +48,7 @@ addEventListener("resize", (event)=> {
 
 
 /* ##### Canvas & Particles ##### */
-const amountOfParticles = 64;
+const amountOfParticles = 128;
 const maxSpeedParticle = 2;
 
 
