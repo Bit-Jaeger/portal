@@ -7,6 +7,8 @@
 const particleCanvas = document.getElementById('particle-canvas');
 const ctx = particleCanvas.getContext("2d");
 
+const gradientCanvas = document.getElementById('gradient-canvas');
+const ctxGrad = gradientCanvas.getContext('2d');
 
 
 const heading = document.getElementById('heading');
@@ -27,10 +29,6 @@ console.log(xTitleHeight);
 console.log(yTitleHeight);
 
 
-
-
-
-
 const testbtn = document.getElementById('testbutton');
 testbtn.addEventListener("click", () =>{
     animate();
@@ -42,7 +40,26 @@ testbtn.addEventListener("click", () =>{
 addEventListener("resize", (event)=> {
     particleCanvas.width = window.innerWidth;
     particleCanvas.height= window.innerHeight;
+    gradientCanvas.height = window.innerWidth;
+    gradientCanvas.height = window.innerHeight;
 })
+
+
+/* ##### Canvas - Gradients ##### */
+
+let gradients = [];
+
+const grad1 = ctxGrad.createRadialGradient(150,75,15,150,75,150);
+grad1.addColorStop(0,"lightblue");
+grad1.addColorStop(1,"darkblue");
+
+// Fill rectangle with gradient
+ctxGrad.fillStyle = grad1;
+ctxGrad.fillRect(10,10,280,130);
+
+
+
+
 
 
 
@@ -50,9 +67,6 @@ addEventListener("resize", (event)=> {
 /* ##### Canvas & Particles ##### */
 const amountOfParticles = 128;
 const maxSpeedParticle = 2;
-
-
-
 particleCanvas.width = window.innerWidth;
 particleCanvas.height= window.innerHeight;
 
@@ -68,7 +82,6 @@ class Particle {
         this.h = h; 
         this.dx = dx;
         this.dy = dy;
-
 
         this.alpha = 1.0;
         this.decay = (Math.random() *0.1);
@@ -88,10 +101,8 @@ class Particle {
         if (this.x > particleCanvas.width || this.x < 0 || this.y > particleCanvas.height){
             this.x = this.originX;
             this.y = this.originY;
-            this.alpha = Math.random() * 1.0;
-            
+            this.alpha = Math.random() * 1.0;   
         }
-
         /* only switch direction after so many updates! */
         if (Math.random() < 0.01){    
             if (Math.random() < 0.5){
@@ -109,7 +120,6 @@ class Particle {
 
 
         this.x += this.dx;
-
         /* update y and alpha anyway */
         this.y += this.dy;
         this.alpha -= (this.decay / 20);

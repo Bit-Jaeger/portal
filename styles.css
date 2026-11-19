@@ -63,6 +63,12 @@ p{
   pointer-events: none;
 }
 
+#gradient-canvas{
+  position: absolute;
+  display: block;
+  z-index: 0;
+}
+
   .bg-glows
   {
     width: 100%;
