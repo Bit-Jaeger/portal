@@ -167,7 +167,7 @@ const animate = () => {
     particles.forEach(particle => {
     particle.draw();
     particle.update();}
-    }
+    )}
 
 }
 
