@@ -64,9 +64,11 @@ p{
 }
 
 #gradient-canvas{
+  display: flex;
   position: absolute;
-  display: block;
   z-index: 0;
+  top:0;
+  left:0;
 }
 
   .bg-glows

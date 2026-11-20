@@ -15,7 +15,7 @@ const heading = document.getElementById('heading');
 const glow1 = document.getElementById('glow-purple');
 
 
-
+const isFired = false;
 
 /* #### getting heading location #### */
 var rect = heading.getBoundingClientRect();
@@ -31,6 +31,7 @@ console.log(yTitleHeight);
 
 const testbtn = document.getElementById('testbutton');
 testbtn.addEventListener("click", () =>{
+    isFired= false;
     animate();
 })
 
@@ -42,6 +43,11 @@ addEventListener("resize", (event)=> {
     particleCanvas.height= window.innerHeight;
     gradientCanvas.height = window.innerWidth;
     gradientCanvas.height = window.innerHeight;
+
+
+    /* Restart animation to adjust to resizing */
+    isFired = false;
+    animate();
 })
 
 
@@ -54,8 +60,10 @@ grad1.addColorStop(0,"lightblue");
 grad1.addColorStop(1,"darkblue");
 
 // Fill rectangle with gradient
+ctxGrad.width = window.innerWidth;
+ctxGrad.height = window.innerHeight;
 ctxGrad.fillStyle = grad1;
-ctxGrad.fillRect(10,10,280,130);
+ctxGrad.fillRect(10,10,window.innerWidth,window.innerHeight);
 
 
 
@@ -151,11 +159,15 @@ for (let i = 0; i < amountOfParticles; i++){
 const animate = () => {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+    if(isFired){
+        return;
+    }
+    else{
+    const isFired = true;
     particles.forEach(particle => {
     particle.draw();
-    particle.update()
- 
-})
+    particle.update();}
+    }
 
 }
 
