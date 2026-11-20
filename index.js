@@ -3,6 +3,8 @@
 /* #TODO: onMouseOver event -> something should follow the mouse or particles get animated, 
         when hovering a link or something like that! */
 
+
+
 /* #### getting elements #### */ 
 const particleCanvas = document.getElementById('particle-canvas');
 const ctx = particleCanvas.getContext("2d");
@@ -18,6 +20,7 @@ const glow1 = document.getElementById('glow-purple');
 const isFired = false;
 
 /* #### getting heading location #### */
+
 var rect = heading.getBoundingClientRect();
 
     const xTitleHeight = (rect.right - rect.left)
@@ -25,13 +28,14 @@ var rect = heading.getBoundingClientRect();
 
 
 console.log(rect.top, rect.right, rect.bottom, rect.left);
-console.log(xTitleHeight); 
-console.log(yTitleHeight);
+
+
+
+
 
 
 const testbtn = document.getElementById('testbutton');
 testbtn.addEventListener("click", () =>{
-    isFired= false;
     animate();
 })
 
@@ -46,7 +50,7 @@ addEventListener("resize", (event)=> {
 
 
     /* Restart animation to adjust to resizing */
-    isFired = false;
+    get_title_rect();
     animate();
 })
 
@@ -140,36 +144,30 @@ let particles = [];
 
 
 for (let i = 0; i < amountOfParticles; i++){
-    /*Draw the particles randomly here */
+    /* create particles with random values */
     const xLocationRandom = (Math.random() * xTitleHeight) + (rect.left);
     const yLocationRandom = (Math.random() * yTitleHeight) + (rect.top)
     const xSpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
     const ySpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
     const boolDir = (Math.random() < 0.5);
-    console.log(xLocationRandom);
-    console.log(boolDir);
     particles.push(new Particle(xLocationRandom, yLocationRandom, 10, 10, xSpeedRandom, ySpeedRandom));
     
 }
 
 
-/* ### drawing each particle ### */
+/* ### frames -> animating particles ### */
 
 
 const animate = () => {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-    if(isFired){
-        return;
-    }
-    else{
-    const isFired = true;
     particles.forEach(particle => {
     particle.draw();
     particle.update();}
-    )}
-
+    )
 }
+
+
 
 
 
