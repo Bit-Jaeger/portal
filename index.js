@@ -13,25 +13,32 @@ const gradientCanvas = document.getElementById('gradient-canvas');
 const ctxGrad = gradientCanvas.getContext('2d');
 
 
-const heading = document.getElementById('heading');
 const glow1 = document.getElementById('glow-purple');
 
 
-const isFired = false;
 
 /* #### getting heading location #### */
+const heading = document.getElementById('heading');
 
 var rect = heading.getBoundingClientRect();
-
-    const xTitleHeight = (rect.right - rect.left)
-    const yTitleHeight = (rect.top);
-
-
-console.log(rect.top, rect.right, rect.bottom, rect.left);
+var currentHeadingX = get_heading_x();
+var currentHeadingY = get_heading_y();
 
 
-
-
+function get_heading_x()
+{
+    console.log(rect.right - rect.left)
+    return (
+        rect.right - rect.left
+    );
+}
+function get_heading_y()
+{
+    return (
+        rect.top
+    );
+    
+}
 
 
 const testbtn = document.getElementById('testbutton');
@@ -45,13 +52,16 @@ testbtn.addEventListener("click", () =>{
 addEventListener("resize", (event)=> {
     particleCanvas.width = window.innerWidth;
     particleCanvas.height= window.innerHeight;
+
     gradientCanvas.height = window.innerWidth;
     gradientCanvas.height = window.innerHeight;
 
-
-    /* Restart animation to adjust to resizing */
-    get_title_rect();
-    animate();
+    /* update heading location for spawning */
+    var currentHeadingX = (Math.random() * get_heading_x() + rect.left);
+    var currentHeadingY = get_heading_y();
+    console.log("resize fired");
+    console.log(currentHeadingX);
+    console.log(rect.left);
 })
 
 
@@ -87,9 +97,9 @@ particleCanvas.height= window.innerHeight;
 class Particle {
     constructor(x, y, w, h, dx, dy, boolDir) {
         this.x = x;
-        this.originX = x;
+        this.originX = this.x;
         this.y = y;
-        this.originY = y;
+        this.originY = this.y;
         this.w = w;
         this.h = h; 
         this.dx = dx;
@@ -111,11 +121,11 @@ class Particle {
 
     update(){
         if (this.x > particleCanvas.width || this.x < 0 || this.y > particleCanvas.height){
-            this.x = this.originX;
-            this.y = this.originY;
+            this.x = ((Math.random() * currentHeadingX) + rect.left);
+            this.y = currentHeadingY;
             this.alpha = Math.random() * 1.0;   
         }
-        /* only switch direction after so many updates! */
+        /* only switch direction after so many updates! 
         if (Math.random() < 0.01){    
             if (Math.random() < 0.5){
                 this.boolDirection = true;
@@ -123,7 +133,7 @@ class Particle {
                 this.boolDirection = false;
             }
         }
-/*      ---- switching x direction movement randomly ----
+      ---- switching x direction movement randomly ----
         if(this.boolDirection){
             this.x -= this.dx;
         }else {
@@ -145,8 +155,8 @@ let particles = [];
 
 for (let i = 0; i < amountOfParticles; i++){
     /* create particles with random values */
-    const xLocationRandom = (Math.random() * xTitleHeight) + (rect.left);
-    const yLocationRandom = (Math.random() * yTitleHeight) + (rect.top)
+    const xLocationRandom = (Math.random() * currentHeadingX) + (rect.left);
+    const yLocationRandom = (Math.random() * currentHeadingY) + (rect.top)
     const xSpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
     const ySpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
     const boolDir = (Math.random() < 0.5);
