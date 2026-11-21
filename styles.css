@@ -18,8 +18,8 @@
 :root{
   color-scheme: dark;
 
-  --dark-bg: var(--pallete-neutral-750);
-  --dark-white: var(--pallete-neutral-000);
+  --page-bg: var(--pallete-neutral-750);
+  --text-white: var(--pallete-neutral-000);
 }
 
 
@@ -31,8 +31,8 @@
 }
 
 body{
-  background-color: var(--dark-bg);
-  color: var(--dark-contrast);
+  background-color: var(--page-bg);
+  color: var(--text-white);
   display: grid;
 }
 
@@ -83,7 +83,7 @@ p{
   left: 0;
   width: 100%;
   height: 150vh;
-  background-color:var(--dark-bg);
+  background-color:var(--page-bg);
   z-index: 1;
   pointer-events: none;
 }
@@ -152,7 +152,7 @@ p{
 .topnav-container a {
 text-decoration: none;
 font-size:x-large;
-color: var(--dark-white);
+color: var(--text-white);
 background-color: transparent;
 
 }
@@ -184,7 +184,7 @@ background-color: transparent;
 .project-card{
   padding: 1.5rem;
   margin: 1.5rem;
-  color: var(--dark-contrast);
+  color: var(--text-white);
   min-height: 254px;
   border-radius: 16px;
   opacity: 0.85;
