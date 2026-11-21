@@ -1,3 +1,28 @@
+/* TODO: getting colors lined up at the top of the file */
+:root{
+    --pallete-neutral-999: #090909;
+    --pallete-neutral-800: #121212;
+    --pallete-neutral-750: #242424;
+    --pallete-neutral-500: #555555;
+    --pallete-neutral-300: #8f8f8f;
+    --pallete-neutral-150: #afafaf;
+    --pallete-neutral-000: #ffffff;
+
+
+    --pallete-accent-orange: #D2B04B;
+    --pallete-accent-red: #CC4A3B;
+    --pallete-accent-teal: #7FE1C5;
+    --pallete-accent-retrogray: #E3DFDC;
+}
+
+:root{
+  color-scheme: dark;
+
+  --dark-bg: var(--pallete-neutral-750);
+  --dark-white: var(--pallete-neutral-000);
+}
+
+
 /*########## RESET ###########*/
 
 *{
@@ -6,8 +31,8 @@
 }
 
 body{
-  background-color: #2b2b2b;
-  color: #ffffff;
+  background-color: var(--dark-bg);
+  color: var(--dark-contrast);
   display: grid;
 }
 
@@ -15,7 +40,7 @@ body{
   position: fixed;
   right: 0;
   top: 0;
-  padding: 8px;
+  padding: 1.5rem;
   z-index: 99;
 }
 
@@ -58,7 +83,7 @@ p{
   left: 0;
   width: 100%;
   height: 150vh;
-  background-color:#2b2b2b;
+  background-color:var(--dark-bg);
   z-index: 1;
   pointer-events: none;
 }
@@ -127,7 +152,7 @@ p{
 .topnav-container a {
 text-decoration: none;
 font-size:x-large;
-color: white;
+color: var(--dark-white);
 background-color: transparent;
 
 }
@@ -157,9 +182,9 @@ background-color: transparent;
 
 
 .project-card{
-  padding: 1.5em;
-  margin: 1.5em;
-  color: white;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  color: var(--dark-contrast);
   min-height: 254px;
   border-radius: 16px;
   opacity: 0.85;
