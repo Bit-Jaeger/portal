@@ -13,6 +13,18 @@
     --pallete-accent-red: #CC4A3B;
     --pallete-accent-teal: #7FE1C5;
     --pallete-accent-retrogray: #E3DFDC;
+
+    --pallete-main-purple00: #f72585;
+    --pallete-main-purple02: #b5179e;
+    --pallete-main-purple04: #7209b7;
+    --pallete-main-purple06: #560bad;
+    --pallete-main-purple08: #480ca8;
+    --pallete-main-blue08: #3a0ca3;
+    --pallete-main-blue06: #3f37c9;
+    --pallete-main-blue04: #4361ee;
+    --pallete-main-blue02: #4895ef;
+    --pallete-main-blue00: #4cc9f0;
+
 }
 
 :root{
