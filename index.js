@@ -77,7 +77,7 @@ grad1.addColorStop(1,"darkblue");
 ctxGrad.width = window.innerWidth;
 ctxGrad.height = window.innerHeight;
 ctxGrad.fillStyle = grad1;
-ctxGrad.fillRect(10,10,window.innerWidth,window.innerHeight);
+ctxGrad.fillRect(200, 200, 800, 750);
 
 
 
@@ -88,7 +88,7 @@ ctxGrad.fillRect(10,10,window.innerWidth,window.innerHeight);
 
 /* ##### Canvas & Particles ##### */
 const amountOfParticles = 128;
-const maxSpeedParticle = 2;
+const maxSpeedParticle = 3;
 particleCanvas.width = window.innerWidth;
 particleCanvas.height= window.innerHeight;
 

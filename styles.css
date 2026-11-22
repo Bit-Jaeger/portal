@@ -36,8 +36,10 @@
 
 
   --card-border: var(--pallete-main-purple00);
+  --card-border-accent: var(--pallete-main-blue00);
   --card-bg: var(--pallete-neutral-750);
   --card-text: var(--pallete-accent-retrogray);
+  
 }
 
 
@@ -125,7 +127,7 @@ p{
 #particle-canvas {
   display: flex;
   position: absolute;
-  z-index: 1;
+  z-index: 5;
   top: 0;
   left: 0;
   pointer-events: none;
@@ -200,6 +202,7 @@ background-color: transparent;
 
 
 .card{
+  display: grid;
   padding: 1.5rem;
   margin: 1.5rem;
   color: var(--text-white);
@@ -215,8 +218,11 @@ background-color: transparent;
 
 
 .card:hover{
-  border-color: var(--pallete-main-blue00);
+  border-color: var(--card-border-accent);
+  opacity: 95%;
 }
+
+
 
 .card--1 {
   grid-area: project1;
