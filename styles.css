@@ -214,12 +214,16 @@ background-color: transparent;
 
   background-color: var(--card-bg);
   border-color: var(--card-border);
+
+  transition-duration: .5s;
 }
 
 
 .card:hover{
   border-color: var(--card-border-accent);
   opacity: 95%;
+  font-size: xx-large;
+  translate: translateY(-5rem);
 }
 
 
