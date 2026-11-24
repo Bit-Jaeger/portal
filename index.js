@@ -4,7 +4,6 @@
         when hovering a link or something like that! */
 
 
-
 /* #### getting elements #### */ 
 const particleCanvas = document.getElementById('particle-canvas');
 const ctx = particleCanvas.getContext("2d");
@@ -12,6 +11,8 @@ const ctx = particleCanvas.getContext("2d");
 const gradientCanvas = document.getElementById('gradient-canvas');
 const ctxGrad = gradientCanvas.getContext('2d');
 
+const sparkCanvas = document.getElementById('spark-canvas');
+const ctxSpark = sparkCanvas.getContext('2d');
 
 const glow1 = document.getElementById('glow-purple');
 
@@ -23,6 +24,8 @@ const heading = document.getElementById('heading');
 var rect = heading.getBoundingClientRect();
 var currentHeadingX = get_heading_x();
 var currentHeadingY = get_heading_y();
+
+console.log("currentHeadingX currentHeadingY")
 
 
 function get_heading_x()
@@ -57,11 +60,9 @@ addEventListener("resize", (event)=> {
     gradientCanvas.height = window.innerHeight;
 
     /* update heading location for spawning */
-    var currentHeadingX = (Math.random() * get_heading_x() + rect.left);
-    var currentHeadingY = get_heading_y();
-    console.log("resize fired");
-    console.log(currentHeadingX);
-    console.log(rect.left);
+    currentHeadingX = (Math.random() * get_heading_x() + rect.left);
+    currentHeadingY = get_heading_y();
+
 })
 
 
@@ -86,6 +87,37 @@ ctxGrad.fillRect(200, 200, 800, 750);
 
 
 
+
+
+const amountOfSparks = 20;
+
+class Spark {
+    constructor(x, y, r, dx, dy,){
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    draw(){
+        ctxSpark.beginPath();
+        ctxSpark.arc(this.x, this.y ,this.r, 0, Math.PI * 2, false);
+        ctxSpark.fillStyle ="#8f8f8f";
+        ctxSpark.fill();
+        ctxSpark.strokeStyle = "#555555";
+        ctxSpark.stroke();
+    }
+}
+
+let sparks = [];
+sparks.push(new Spark(50, 50, 50, 0, 0));
+for (let j = 0; j < amountOfSparks; j++){
+    sparks[j].draw();
+}
+
+
+
 /* ##### Canvas & Particles ##### */
 const amountOfParticles = 128;
 const maxSpeedParticle = 3;
@@ -93,7 +125,7 @@ particleCanvas.width = window.innerWidth;
 particleCanvas.height= window.innerHeight;
 
 
-/* TODO: Color Variable */
+
 class Particle {
     constructor(x, y, w, h, dx, dy, boolDir) {
         this.x = x;

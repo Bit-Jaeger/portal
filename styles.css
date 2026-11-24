@@ -1,4 +1,3 @@
-/* TODO: getting colors lined up at the top of the file */
 :root{
     --pallete-neutral-999: #090909;
     --pallete-neutral-800: #121212;
@@ -133,6 +132,13 @@ p{
   pointer-events: none;
 }
 
+
+#spark-canvas {
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  pointer-events: none;
+}
 
 
 
