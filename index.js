@@ -11,8 +11,6 @@ const ctx = particleCanvas.getContext("2d");
 const gradientCanvas = document.getElementById('gradient-canvas');
 const ctxGrad = gradientCanvas.getContext('2d');
 
-const sparkCanvas = document.getElementById('spark-canvas');
-const ctxSpark = sparkCanvas.getContext('2d');
 
 const glow1 = document.getElementById('glow-purple');
 
@@ -83,38 +81,6 @@ ctxGrad.fillRect(200, 200, 800, 750);
 
 
 
-
-
-
-
-
-
-const amountOfSparks = 20;
-
-class Spark {
-    constructor(x, y, r, dx, dy,){
-        this.x = x;
-        this.y = y;
-        this.r = r;
-        this.dx = dx;
-        this.dy = dy;
-    }
-
-    draw(){
-        ctxSpark.beginPath();
-        ctxSpark.arc(this.x, this.y ,this.r, 0, Math.PI * 2, false);
-        ctxSpark.fillStyle ="#8f8f8f";
-        ctxSpark.fill();
-        ctxSpark.strokeStyle = "#555555";
-        ctxSpark.stroke();
-    }
-}
-
-let sparks = [];
-sparks.push(new Spark(50, 50, 50, 0, 0));
-for (let j = 0; j < amountOfSparks; j++){
-    sparks[j].draw();
-}
 
 
 
