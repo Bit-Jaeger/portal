@@ -7,22 +7,17 @@
 /* #### getting elements #### */ 
 const particleCanvas = document.getElementById('particle-canvas');
 const ctx = particleCanvas.getContext("2d");
-
 const gradientCanvas = document.getElementById('gradient-canvas');
 const ctxGrad = gradientCanvas.getContext('2d');
-
-
 const glow1 = document.getElementById('glow-purple');
-
+const glow2 = document.getElementById('glow-aquamarine');
 
 
 /* #### getting heading location #### */
 const heading = document.getElementById('heading');
-
 var rect = heading.getBoundingClientRect();
 var currentHeadingX = get_heading_x();
 var currentHeadingY = get_heading_y();
-
 console.log("currentHeadingX currentHeadingY")
 
 
@@ -46,41 +41,6 @@ const testbtn = document.getElementById('testbutton');
 testbtn.addEventListener("click", () =>{
     animate();
 })
-
-
-
-/* Resize #### watch out: wipes the canvas clean on resize! */
-addEventListener("resize", (event)=> {
-    particleCanvas.width = window.innerWidth;
-    particleCanvas.height= window.innerHeight;
-
-    gradientCanvas.height = window.innerWidth;
-    gradientCanvas.height = window.innerHeight;
-
-    /* update heading location for spawning */
-    currentHeadingX = (Math.random() * get_heading_x() + rect.left);
-    currentHeadingY = get_heading_y();
-
-})
-
-
-/* ##### Canvas - Gradients ##### */
-
-let gradients = [];
-
-const grad1 = ctxGrad.createRadialGradient(150,75,15,150,75,150);
-grad1.addColorStop(0,"lightblue");
-grad1.addColorStop(1,"darkblue");
-
-// Fill rectangle with gradient
-ctxGrad.width = window.innerWidth;
-ctxGrad.height = window.innerHeight;
-ctxGrad.fillStyle = grad1;
-ctxGrad.fillRect(200, 200, 800, 750);
-
-
-
-
 
 
 
@@ -181,6 +141,19 @@ const animate = () => {
 
 
 
+/* Resize #### watch out: wipes the canvas clean on resize! */
+addEventListener("resize", (event)=> {
+    particleCanvas.width = window.innerWidth;
+    particleCanvas.height= document.body.scrollHeight;
+
+    gradientCanvas.width = window.innerWidth;
+    gradientCanvas.height = document.body.scrollHeight;
+
+    /* update heading location for spawning */
+    currentHeadingX = (Math.random() * get_heading_x() + rect.left);
+    currentHeadingY = get_heading_y();
+
+})
 
 
 
