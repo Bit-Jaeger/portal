@@ -107,13 +107,7 @@ p{
   pointer-events: none;
 }
 
-#gradient-canvas{
-  display: flex;
-  position: fixed;
-  z-index: 0;
-  top:0;
-  left:0;
-}
+
 
   .bg-glows
   {
@@ -130,14 +124,6 @@ p{
   z-index: 5;
   top: 0;
   left: 0;
-  pointer-events: none;
-}
-
-
-#spark-canvas {
-  display: flex;
-  position: fixed;
-  z-index: 99;
   pointer-events: none;
 }
 

@@ -7,8 +7,7 @@
 /* #### getting elements #### */ 
 const particleCanvas = document.getElementById('particle-canvas');
 const ctx = particleCanvas.getContext("2d");
-const gradientCanvas = document.getElementById('gradient-canvas');
-const ctxGrad = gradientCanvas.getContext('2d');
+
 const glow1 = document.getElementById('glow-purple');
 const glow2 = document.getElementById('glow-aquamarine');
 
@@ -18,12 +17,11 @@ const heading = document.getElementById('heading');
 var rect = heading.getBoundingClientRect();
 var currentHeadingX = get_heading_x();
 var currentHeadingY = get_heading_y();
-console.log("currentHeadingX currentHeadingY")
+console.log(currentHeadingX, currentHeadingY)
 
 
 function get_heading_x()
 {
-    console.log(rect.right - rect.left)
     return (
         rect.right - rect.left
     );
@@ -47,8 +45,7 @@ testbtn.addEventListener("click", () =>{
 /* ##### Canvas & Particles ##### */
 const amountOfParticles = 128;
 const maxSpeedParticle = 3;
-particleCanvas.width = window.innerWidth;
-particleCanvas.height= window.innerHeight;
+
 
 
 
@@ -132,7 +129,7 @@ const animate = () => {
 // Retrieved 2026-11-27, License - CC BY-SA 4.0
 
 onmousemove = function(e){console.log("mouse location:", e.clientX, e.clientY)}
-const cards [] = document.getElementsByClassName('card');
+
 
 
 /* Resize #### watch out: wipes the canvas clean on resize! */
@@ -140,8 +137,7 @@ addEventListener("resize", (event)=> {
     particleCanvas.width = window.innerWidth;
     particleCanvas.height= document.body.scrollHeight;
 
-    gradientCanvas.width = window.innerWidth;
-    gradientCanvas.height = document.body.scrollHeight;
+
 
     /* update heading location for spawning */
     currentHeadingX = (Math.random() * get_heading_x() + rect.left);
