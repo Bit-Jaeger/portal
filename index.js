@@ -123,21 +123,6 @@ class Particle {
             this.y = currentHeadingY;
             this.alpha = Math.random() * 1.0;   
         }
-        /* only switch direction after so many updates! 
-        if (Math.random() < 0.01){    
-            if (Math.random() < 0.5){
-                this.boolDirection = true;
-            } else {
-                this.boolDirection = false;
-            }
-        }
-      ---- switching x direction movement randomly ----
-        if(this.boolDirection){
-            this.x -= this.dx;
-        }else {
-            this.x += this.dx;
-        }*/
-
 
         this.x += this.dx;
         /* update y and alpha anyway */
@@ -157,7 +142,6 @@ for (let i = 0; i < amountOfParticles; i++){
     const yLocationRandom = (Math.random() * currentHeadingY) + (rect.top)
     const xSpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
     const ySpeedRandom = (Math.random() -0.5)* maxSpeedParticle;
-    const boolDir = (Math.random() < 0.5);
     particles.push(new Particle(xLocationRandom, yLocationRandom, 10, 10, xSpeedRandom, ySpeedRandom));
     
 }
@@ -179,6 +163,16 @@ const animate = () => {
 
 
 
+
+
+/* ########################################################## */
+/* Beginning to track mouse movement - for particles*/
+// Source - https://stackoverflow.com/a/34348306
+// Posted by RegarBoy, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-11-27, License - CC BY-SA 4.0
+
+onmousemove = function(e){console.log("mouse location:", e.clientX, e.clientY)}
+const cards [] = document.getElementsByClassName('card');
 
 
 
